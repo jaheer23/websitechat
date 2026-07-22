@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Embedded Messaging Test</title>
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+<h1>Embedded Messaging Test</h1>
+
+<script>
+function initEmbeddedMessaging() {
+    console.log("initEmbeddedMessaging called");
+
+    console.log("embeddedservice_bootstrap =", embeddedservice_bootstrap);
+
+    try {
+        embeddedservice_bootstrap.settings.language = "en_US";
+
+        embeddedservice_bootstrap.init(
+            "00Dds000003zsGH",
+            "Website_Check",
+            "https://iapro--preprod.sandbox.my.site.com/ESWWebsiteCheck1784202193154",
+            {
+                scrt2URL: "https://iapro--preprod.sandbox.my.salesforce-scrt.com"
+            }
+        );
+
+        console.log("Init invoked successfully.");
+    } catch (e) {
+        console.error(e);
+    }
+}
+</script>
+
+<script
+src="https://iapro--preprod.sandbox.my.site.com/ESWWebsiteCheck1784202193154/assets/js/bootstrap.min.js"
+onload="console.log('Bootstrap loaded'); initEmbeddedMessaging();"
+onerror="console.error('Bootstrap failed to load');">
+</script>
+
+</body>
+</html>
